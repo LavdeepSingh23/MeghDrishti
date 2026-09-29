@@ -1,0 +1,90 @@
+@import "leaflet/dist/leaflet.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Absans';
+  src: url('/fonts/Absans-Regular.woff2') format('woff2'),
+       url('/fonts/Absans-Regular.woff') format('woff'),
+       url('/fonts/Absans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root { 
+    color-scheme: dark light;
+    --bg-canvas: #ffffff;
+    --text-main: #09090b;
+    --border-subtle: #e4e4e7;
+  }
+  
+  html.dark, html.dark body, html.dark #root, .dark {
+    --bg-canvas: #09090b;
+    --text-main: #f4f4f5;
+    --border-subtle: #27272a;
+    background-color: #09090b;
+    color: #f4f4f5;
+  }
+
+  html.light, html.light body, html.light #root, .light {
+    --bg-canvas: #ffffff;
+    --text-main: #09090b;
+    --border-subtle: #e4e4e7;
+    background-color: #ffffff;
+    color: #09090b;
+  }
+
+  html, body, #root {
+    margin: 0; padding: 0; width: 100%; min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Absans', system-ui, -apple-system, sans-serif !important;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, button, input, select, textarea, div, a, label {
+    font-family: 'Absans', system-ui, -apple-system, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'IBM Plex Mono', monospace !important;
+  }
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #52525b; border-radius: 2px; }
+
+.leaflet-container { 
+  background-color: #09090b !important; 
+  font-family: 'Absans', system-ui, sans-serif !important; 
+}
+html.light .leaflet-container {
+  background-color: #f1f5f9 !important;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(150,150,150,0.2) !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+}
+html.dark .leaflet-control-zoom a {
+  background-color: #09090b !important; color: #a1a1aa !important; border-color: rgba(255,255,255,0.08) !important;
+}
+html.light .leaflet-control-zoom a {
+  background-color: #ffffff !important; color: #334155 !important; border-color: rgba(0,0,0,0.1) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3) !important;
+}
+html.dark .leaflet-popup-content-wrapper {
+  background: #09090b !important; color: #f4f4f5 !important;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+html.light .leaflet-popup-content-wrapper {
+  background: #ffffff !important; color: #0f172a !important;
+  border: 1px solid rgba(0,0,0,0.15);
+}
